@@ -11,7 +11,7 @@
   <script src="./resources/jquery.min.js"></script>
   <script src="./resources/arbor.js"></script>
   <script src="./resources/graphics.js"></script>
-  <script src="renderer.js"></script> 
+  <script src="./resources/renderer.js"></script> 
   <script src="http://connect.soundcloud.com/sdk.js"></script>
 
   <script language="javascript" type="text/javascript">   
