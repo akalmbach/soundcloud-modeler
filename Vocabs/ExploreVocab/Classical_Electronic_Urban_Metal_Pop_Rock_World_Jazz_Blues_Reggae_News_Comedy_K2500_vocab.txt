@@ -1,0 +1,20 @@
+TrackID	TrackTitle	ArtistID	ArtistName	WavFile	MFCCsFile	WordsFile	URL	ParentID
+79964987	Empelota	7899973	Ernesto J. Espinoza	_Empelota.wav	None	None	http://soundcloud.com/ernestojespinoza/empelota	None
+79793479	Michael Barr on financing the poor	7549311	The Economist	_MichaelBarronfinancingthepoor.wav	None	None	http://soundcloud.com/theeconomist/michael-barr-on-financing-the	None
+80118697	Harlem Shake	28032696	Suraj Channa	_HarlemShake.wav	None	None	http://soundcloud.com/official_suraj/harlem-shake	None
+75804586	Don't Call me Baby- METAL!	33063976	James Woodward	_DontCallmeBaby-METAL.wav	None	None	http://soundcloud.com/james-logan-woodward/01-dont-call-me-baby-metal	None
+80364043	I'm Through With Love (In the style of Jane Monheit)	4380805	Sarah Caballero	_ImThroughWithLoveInthestyleofJaneMonheit.wav	None	None	http://soundcloud.com/sarahcaballero/im-through-with-love-in-the	None
+80136748	Bokura wa Ima no Naka de - REMiX by Coverguy88	19765990		_BokurawaImanoNakade-REMiXbyCoverguy88.wav	None	None	http://soundcloud.com/coverguy88/bokura-wa-ima-no-naka-de-remix	None
+80251567	Astronautica: Califlorida	396212	Alpha Pup Records	_AstronauticaCaliflorida.wav	None	None	http://soundcloud.com/alphapup/astronautica-califlorida	None
+77560528	Ludwig van Beethoven - Sonata #14, "Moonlight" -- Orchestral Arrangement by Trevor Zink	6101631	Trevor Zink	_LudwigvanBeethoven-Sonata14Moonlight--OrchestralArrangementbyTrevorZink.wav	None	None	http://soundcloud.com/trevorzink/moonlight	None
+64809491	The Crystal Ark -  Rain	1520490		_TheCrystalArk-Rain.wav	None	None	http://soundcloud.com/dfa-records/the-crystal-ark-rain	None
+79383707	She Thinks I Steal Cars	3651357	Gary Alexander	_SheThinksIStealCars.wav	None	None	http://soundcloud.com/garyalexander/she-thinks-i-steal-cars	None
+75494454	All That Jazz	13453568	Alanjay Lori	_AllThatJazz.wav	None	None	http://soundcloud.com/alanjay-lori/all-that-jazz	None
+69930521	Mark de Clive-Lowe & the Rotterdam Jazz Orchestra - Take The Space Trane	998309	Tru Thoughts	_MarkdeClive-LowetheRotterdamJazzOrchestra-TakeTheSpaceTrane.wav	None	None	http://soundcloud.com/tru-thoughts/mark-de-clive-lowe-the	None
+80064824	F.W.M	25387377	Zone Calzone	_F.W.M.wav	None	None	http://soundcloud.com/troy-muncheez-rivers/f-w-m	None
+59460889	Toxic - Britney Spears (Cover) by Teza Sumendra (Guitar: Stephanus Jason)	8571493	Marteza Sumendra	_Toxic-BritneySpearsCoverbyTezaSumendraGuitarStephanusJason.wav	None	None	http://soundcloud.com/tezasumendra/toxic-britney-spears-cover	None
+79760346	Love Bytes	30790594	Tony James	_LoveBytes.wav	None	None	http://soundcloud.com/sputnikworld/love-bytes	None
+76102703	Travel Dreams - HRS Long	32823523		_TravelDreams-HRSLong.wav	None	None	http://soundcloud.com/hrs-das-hotelportal/travel-dreams-hrs-long	None
+
+Path: Vocabs/ExploreVocab/	Bytes: 320615160	 ms: 3590382
+ Minutes: 59
