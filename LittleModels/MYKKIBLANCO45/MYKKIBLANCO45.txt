@@ -1,0 +1,15 @@
+TrackID	TrackTitle	ArtistID	ArtistName	WavFile	MFCCsFile	WordsFile	URL	ParentID
+46464768	Head Is A Stone ----- MYKKI BLANCO & THE MUTANT ANGELS	8117680	MYKKI  BLANCO	_HeadIsAStone-----MYKKIBLANCOTHEMUTANTANGELS.wav	None	None	http://soundcloud.com/mykkiblanco/head-is-a-stone-mykki-blanco	8117680
+62663842	Haze.Boogie.Life [Produced by Sinden & Matrixxman]	8117680	MYKKI  BLANCO	_Haze.Boogie.LifeProducedbySindenMatrixxman.wav	None	None	http://soundcloud.com/mykkiblanco/haze-boogie-life-prod-sinden	8117680
+70096904	ZEBRA KATZ x BOYFRIEND - WINTER TITTY (LENKEMZ VIP REMIX)	660303	Brooklyn	_ZEBRAKATZxBOYFRIEND-WINTERTITTYLENKEMZVIPREMIX.wav	None	None	http://soundcloud.com/zebrakatz/zebra-katz-x-boyfriend-winter	1606593
+41613052	She only gives me ambient feedback	1286015	boss delder	_Sheonlygivesmeambientfeedback.wav	None	None	http://soundcloud.com/tehgame/she-only-gives-me-ambient	8117680
+63954446	ROMY - HOME (Sveta's TRAPPed At Home Mix)	288476	Sveta Gilerman	_ROMY-HOMESvetasTRAPPedAtHomeMix.wav	None	None	http://soundcloud.com/dj-sveta/romy-home-svetas-trapped-at	1606593
+70728713	Peepholes - Pinnacles (Physical Therapy Remix)	1129348	PHYSICAL THERAPY	_Peepholes-PinnaclesPhysicalTherapyRemix.wav	None	None	http://soundcloud.com/physical-therapy/peepholes-pinnacles-physical	8117680
+44084948	Wavvy [Prod. By Brenmar]	8117680	MYKKI  BLANCO	_WavvyProd.ByBrenmar.wav	None	None	http://soundcloud.com/mykkiblanco/wavvy-produced-by-bbrenmar	8117680
+78739415	diamond black hearted boy - im shutting down™	950364	Chino Amobi	_diamondblackheartedboy-imshuttingdown.wav	None	None	http://soundcloud.com/diamondblackheartedboy/diamond-black-hearted-boy-im	8117680
+69091156	Right Here	337388	Vin Sol	_RightHere.wav	None	None	http://soundcloud.com/vin-sol/right-here	1606593
+74260857	Salva & Brenmar - Let Me Bang (free DL!!) shout out Dj Deeon!	353298	Bill Salas	_SalvaBrenmar-LetMeBangfreeDLshoutoutDjDeeon.wav	None	None	http://soundcloud.com/brenmar/salva-brenmar-let-me-bang-free	8117680
+33030876	Pictureplane - Trancegender (Adeptus Remixxx)	931480	DIS Magazine	_Pictureplane-TrancegenderAdeptusRemixxx.wav	None	None	http://soundcloud.com/dismagazine/trancegender-adeptus-remixxx	8117680
+
+Path: ./test4/	Bytes: 240563414	 ms: 2701890
+ Minutes: 45

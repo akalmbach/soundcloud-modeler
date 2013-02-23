@@ -1,0 +1,13 @@
+TrackID	TrackTitle	ArtistID	ArtistName	WavFile	MFCCsFile	WordsFile	URL	ParentID
+46464768	Head Is A Stone ----- MYKKI BLANCO & THE MUTANT ANGELS	8117680	MYKKI  BLANCO	_HeadIsAStone-----MYKKIBLANCOTHEMUTANTANGELS.wav	None	None	http://soundcloud.com/mykkiblanco/head-is-a-stone-mykki-blanco	8117680
+62663842	Haze.Boogie.Life [Produced by Sinden & Matrixxman]	8117680	MYKKI  BLANCO	_Haze.Boogie.LifeProducedbySindenMatrixxman.wav	None	None	http://soundcloud.com/mykkiblanco/haze-boogie-life-prod-sinden	8117680
+33030876	Pictureplane - Trancegender (Adeptus Remixxx)	931480	DIS Magazine	_Pictureplane-TrancegenderAdeptusRemixxx.wav	None	None	http://soundcloud.com/dismagazine/trancegender-adeptus-remixxx	8117680
+71639629	Rihanna - Loveee Song feat. Future (Brenmar Club Edit) for DL!!	353298	Bill Salas	_Rihanna-LoveeeSongfeat.FutureBrenmarClubEditforDL.wav	None	None	http://soundcloud.com/brenmar/rihanna-loveee-song-feat	8117680
+70728713	Peepholes - Pinnacles (Physical Therapy Remix)	1129348	PHYSICAL THERAPY	_Peepholes-PinnaclesPhysicalTherapyRemix.wav	None	None	http://soundcloud.com/physical-therapy/peepholes-pinnacles-physical	8117680
+44084948	Wavvy [Prod. By Brenmar]	8117680	MYKKI  BLANCO	_WavvyProd.ByBrenmar.wav	None	None	http://soundcloud.com/mykkiblanco/wavvy-produced-by-bbrenmar	8117680
+78739415	diamond black hearted boy - im shutting down™	950364	Chino Amobi	_diamondblackheartedboy-imshuttingdown.wav	None	None	http://soundcloud.com/diamondblackheartedboy/diamond-black-hearted-boy-im	8117680
+74260857	Salva & Brenmar - Let Me Bang (free DL!!) shout out Dj Deeon!	353298	Bill Salas	_SalvaBrenmar-LetMeBangfreeDLshoutoutDjDeeon.wav	None	None	http://soundcloud.com/brenmar/salva-brenmar-let-me-bang-free	8117680
+41613052	She only gives me ambient feedback	1286015	boss delder	_Sheonlygivesmeambientfeedback.wav	None	None	http://soundcloud.com/tehgame/she-only-gives-me-ambient	8117680
+
+Path: ./test4/	Bytes: 173938370	 ms: 1973140
+ Minutes: 32
