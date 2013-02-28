@@ -137,8 +137,17 @@
 	    $(canvas).bind('mousemove', handler.dragged)
 	    $(window).bind('mouseup', handler.dropped)
 	    $(canvas).bind('click', handler.followlink)
+	    $(canvas).bind('mousedown', handler.selected)
 	    //$(canvas).bind('mouseup', handler.playStream)
 	  },
+	  selected:function(e){
+	    if (dragged===null || dragged.node===undefined) return
+	    if (dragged.node !== null){
+		dragged.node.fixed = true                  
+	    }
+	    return false
+	  },
+	    
 	  /*playStream:function(e){
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
