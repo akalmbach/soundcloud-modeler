@@ -158,6 +158,7 @@
 	    if (dragged.node !== null){
 		dragged.node.fixed = true                  
 		var url=dragged.node.data.link;
+		console.log(url)
 		if (url) window.open(url, '_blank')
 	    }
 	    return false
