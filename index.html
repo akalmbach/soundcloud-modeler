@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body>
+  <canvas id="viewport" width="1280" height="500"></canvas>
+
+  <script src="./resources/jquery.min.js"></script>
+  <script src="./resources/arbor.js"></script>
+  <script src="./resources/graphics.js"></script>
+  <script src="./renderer.js"></script> 
+  <script src="./resources/soundmanagerv297a-20130101/script/soundmanager2.js"></script>
+
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
+
+  <script language="javascript" type="text/javascript">
+    soundManager.setup({url:'resources/soundmanagerv297a-20130101/swf', flashVersion: 9, useFlashBlock: false, debugFlash: true})
+    SC.initialize({
+      client_id: 'ef553ea9bbb7541955873e5569f0bc90'
+    });
+    var sys = arbor.ParticleSystem(500, 250, 0.98);
+    sys.parameters({gravity:true});
+    sys.renderer = Renderer("#viewport", SC);
+    
+    var data = {
+      nodes:{
+	4:{'color':'rgba(50,50,50,0.75)',
+	  'shape':'rect',
+	  'label':'t4',
+	  'link':''},
+	3:{'color':'rgba(50,50,50,0.75)',
+	  'shape':'rect',
+	  'label':'t3',
+	  'link':''},
+	2:{'color':'rgba(50,50,50,0.75)',
+	  'shape':'rect',
+	  'label':'t2',
+	  'link':''},
+	1:{'color':'rgba(50,50,50,0.75)',
+	  'shape':'rect',
+	  'label':'t1',
+	  'link':''},
+	0:{'color':'rgba(50,50,50,0.75)',
+	  'shape':'rect',
+	  'label':'t0',
+	  'link':''},
+	77653440:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'mike sheridan - brokvarteret (aebeloe remix)',
+	  'link':'http://soundcloud.com/natalzaks/mike-sheridan-brokvarteret'},
+	22560449:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Maybes (Live recording - Daytrotter Session)',
+	  'link':'http://soundcloud.com/mountkimbie/maybes-daytrotter-session'},
+	66611435:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Aquarius Heaven feat DOP - Nasty boys',
+	  'link':'http://soundcloud.com/aquarius-heaven/aquarius-heaven-nasty-boys'},
+	76804645:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'You got it',
+	  'link':'http://soundcloud.com/bizigara/you-got-it'},
+	74898391:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'03 Trouver Sa Voie (Thinner, 2003)',
+	  'link':'http://soundcloud.com/pheek/03-trouver-sa-voie-thinner'},
+	33910553:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Arcade Fire - The Suburbs (Ripa\'s re-edit)',
+	  'link':'http://soundcloud.com/ripperton/arcade-fire-the-suburbs-ripas'},
+	79992525:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Too Close re-mix',
+	  'link':'http://soundcloud.com/mystic-flute/too-close-re-mix'},
+	6851379:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Honey &amp; Tea',
+	  'link':'http://soundcloud.com/karimas/honey-tea'},
+	68557140:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Nicolas Jaar &amp; Theatre Roosevelt - The Ego',
+	  'link':'http://soundcloud.com/clownandsunset/nicolas-jaar-theatre-roosevelt'},
+	40914357:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Sarp Yilmaz &quot;As if I Care&quot; LP  OUT NOW on Apparel Music',
+	  'link':'http://soundcloud.com/sarpyilmaz/sarp-yilmaz-as-if-i-care-lp'},
+	71085046:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'RobertBabicz - LakeExplorer',
+	  'link':'http://soundcloud.com/robbabicz/robertbabicz-lakeexplorer'},
+	70014809:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Flight Simulator',
+	  'link':'http://soundcloud.com/nv65/flight-simulator'},
+	74898392:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'04 Deux Exemples de Solitude (Thinner, 2003)',
+	  'link':'http://soundcloud.com/pheek/04-deux-exemples-de-solitude'},
+	74898393:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'05 Rastaphada Eh (Thinner, 2003)',
+	  'link':'http://soundcloud.com/pheek/05-rastaphada-eh-thinner-2003'},
+	74898394:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'06 25 Seconds to Dawn (Thinner, 2003)',
+	  'link':'http://soundcloud.com/pheek/06-25-seconds-to-dawn-thinner'},
+	175579:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'Greg Pidcock - Sound from &quot;Physical Break&quot;',
+	  'link':'http://soundcloud.com/gregpidcock/greg-pidcock-sound-from-physical-break'},
+	74747033:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'paul valentin - l\'anglin [FREE DOWNLOAD]',
+	  'link':'http://soundcloud.com/paul-valentin/paul-valentin-langlin'},
+	77597245:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'M.in VS Kenlou - The Funky Bounce Revanche (Loquace Bootleg)',
+	  'link':'http://soundcloud.com/loquace/m-in-vs-kenlou-the-funky'},
+	80160703:{'color':'rgba(180,20,20,0.8)',
+	  'shape':'rect',
+	  'label':'S. N. Goenka',
+	  'link':'http://soundcloud.com/jiony/s-n-goenka'},
+      },
+      edges:{
+	4:{
+	  66611435:{'weight':0.281659990549, 'color':'green'},
+	  	  79992525:{'weight':1.91427385807, 'color':'green'},
+	  	  74898393:{'weight':1.32780861855, 'color':'green'},
+	  	  74898394:{'weight':1.38994002342, 'color':'green'},
+	  	  74747033:{'weight':1.55821752548, 'color':'green'},
+	   },
+	3:{
+	  77653440:{'weight':1.23843002319, 'color': 'blue'},
+	  	  22560449:{'weight':0.3890619874, 'color': 'blue'},
+	  	  66611435:{'weight':1.5369720459, 'color': 'blue'},
+	  	  33910553:{'weight':0.260206013918, 'color': 'blue'},
+	  	  68557140:{'weight':0.634953975677, 'color': 'blue'},
+	  	  40914357:{'weight':1.41001999378, 'color': 'blue'},
+	  	  71085046:{'weight':1.93407797813, 'color': 'blue'},
+	  	  70014809:{'weight':0.544128000736, 'color': 'blue'},
+	  	  74898394:{'weight':0.512925982475, 'color': 'blue'},
+	  	  77597245:{'weight':0.686696708202, 'color': 'blue'},
+	   },
+	2:{
+	  33910553:{'weight':1.11843597889, 'color': 'yellow'},
+	  	  70014809:{'weight':0.684040009975, 'color': 'yellow'},
+	  	  175579:{'weight':1.99977600574, 'color': 'yellow'},
+	   },
+	1:{
+	  76804645:{'weight':1.73652172089, 'color': 'purple'},
+	  	  74898391:{'weight':1.66492199898, 'color': 'purple'},
+	  	  33910553:{'weight':0.556490004063, 'color': 'purple'},
+	  	  68557140:{'weight':0.458400011063, 'color': 'purple'},
+	  	  74898392:{'weight':1.59627604485, 'color': 'purple'},
+	  	  74898393:{'weight':0.3339856565, 'color': 'purple'},
+	  	  74747033:{'weight':0.421690434217, 'color': 'purple'},
+	  	  77597245:{'weight':1.25541126728, 'color': 'purple'},
+	   },
+	0:{
+	  77653440:{'weight':0.475787997246, 'color': 'red'},
+	  	  22560449:{'weight':1.53657996655, 'color': 'red'},
+	  	  6851379:{'weight':1.98385798931, 'color': 'red'},
+	  	  68557140:{'weight':0.593191981316, 'color': 'red'},
+	  	  70014809:{'weight':0.375496000051, 'color': 'red'},
+	  	  80160703:{'weight':1.86281788349, 'color': 'red'},
+	   },
+	77653440:{
+	  3:{'weight':1.23843002319},
+	  	  0:{'weight':0.475787997246},
+	  	  77653440:{'weight':2.0},
+	   },
+	22560449:{
+	  3:{'weight':0.3890619874},
+	  	  0:{'weight':1.53657996655},
+	  	  22560449:{'weight':2.0},
+	   },
+	66611435:{
+	  4:{'weight':0.281659990549},
+	  	  3:{'weight':1.5369720459},
+	  	  66611435:{'weight':2.0},
+	   },
+	76804645:{
+	  1:{'weight':1.73652172089},
+	  	  76804645:{'weight':2.0},
+	   },
+	74898391:{
+	  1:{'weight':1.66492199898},
+	  	  74898391:{'weight':2.0},
+	  	  74898392:{'weight':2.0},
+	  	  74898393:{'weight':2.0},
+	  	  74898394:{'weight':2.0},
+	   },
+	33910553:{
+	  3:{'weight':0.260206013918},
+	  	  2:{'weight':1.11843597889},
+	  	  1:{'weight':0.556490004063},
+	  	  33910553:{'weight':2.0},
+	   },
+	79992525:{
+	  4:{'weight':1.91427385807},
+	  	  79992525:{'weight':2.0},
+	   },
+	6851379:{
+	  0:{'weight':1.98385798931},
+	  	  6851379:{'weight':2.0},
+	   },
+	68557140:{
+	  3:{'weight':0.634953975677},
+	  	  1:{'weight':0.458400011063},
+	  	  0:{'weight':0.593191981316},
+	  	  68557140:{'weight':2.0},
+	   },
+	40914357:{
+	  3:{'weight':1.41001999378},
+	  	  40914357:{'weight':2.0},
+	   },
+	71085046:{
+	  3:{'weight':1.93407797813},
+	  	  71085046:{'weight':2.0},
+	   },
+	70014809:{
+	  3:{'weight':0.544128000736},
+	  	  2:{'weight':0.684040009975},
+	  	  0:{'weight':0.375496000051},
+	  	  70014809:{'weight':2.0},
+	   },
+	74898392:{
+	  1:{'weight':1.59627604485},
+	  	  74898391:{'weight':2.0},
+	  	  74898392:{'weight':2.0},
+	  	  74898393:{'weight':2.0},
+	  	  74898394:{'weight':2.0},
+	   },
+	74898393:{
+	  4:{'weight':1.32780861855},
+	  	  1:{'weight':0.3339856565},
+	  	  74898391:{'weight':2.0},
+	  	  74898392:{'weight':2.0},
+	  	  74898393:{'weight':2.0},
+	  	  74898394:{'weight':2.0},
+	   },
+	74898394:{
+	  4:{'weight':1.38994002342},
+	  	  3:{'weight':0.512925982475},
+	  	  74898391:{'weight':2.0},
+	  	  74898392:{'weight':2.0},
+	  	  74898393:{'weight':2.0},
+	  	  74898394:{'weight':2.0},
+	   },
+	175579:{
+	  2:{'weight':1.99977600574},
+	  	  175579:{'weight':2.0},
+	   },
+	74747033:{
+	  4:{'weight':1.55821752548},
+	  	  1:{'weight':0.421690434217},
+	  	  74747033:{'weight':2.0},
+	   },
+	77597245:{
+	  3:{'weight':0.686696708202},
+	  	  1:{'weight':1.25541126728},
+	  	  77597245:{'weight':2.0},
+	   },
+	80160703:{
+	  0:{'weight':1.86281788349},
+	  	  80160703:{'weight':2.0},
+	   },
+      }
+    };
+  
+  sys.graft(data);
+  </script>
+  </body>
+</html>
