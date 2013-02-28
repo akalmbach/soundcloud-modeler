@@ -137,7 +137,7 @@
 	    $(canvas).bind('mousemove', handler.dragged)
 	    $(window).bind('mouseup', handler.dropped)
 	    $(canvas).bind('dblclick', handler.followlink)
-	    $(canvas).bind('click', handler.playStream)
+	    $(canvas).bind('mouseup', handler.playStream)
 	  },
 	  playStream:function(e){
 	    $(canvas).unbind('mousemove', handler.dragged)
@@ -149,7 +149,7 @@
 		console.log(url)
                 SC.stream(url, {autoPlay: true});
 	    }
-	    //$(canvas).unbind('click', handler.playStream)
+	    $(canvas).unbind('mouseup', handler.playStream)
 	    return false
 	  },
 	  followlink:function(e){
@@ -159,7 +159,7 @@
 		var url=dragged.node.data.link;
 		if (url) window.open(url, '_blank')
 	    }
-            //$(canvas).unbind('dblclick', handler.followlink)
+            $(canvas).unbind('dblclick', handler.followlink)
 	    return false
 	  },
           dragged:function(e){
