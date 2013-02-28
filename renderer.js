@@ -149,7 +149,7 @@
 		console.log(url)
                 SC.stream(url, {autoPlay: true});
 	    }
-	    $(canvas).unbind('click', handler.playStream)
+	    //$(canvas).unbind('click', handler.playStream)
 	    return false
 	  },
 	  followlink:function(e){
@@ -159,7 +159,7 @@
 		var url=dragged.node.data.link;
 		if (url) window.open(url, '_blank')
 	    }
-            $(canvas).unbind('dblclick', handler.followlink)
+            //$(canvas).unbind('dblclick', handler.followlink)
 	    return false
 	  },
           dragged:function(e){
