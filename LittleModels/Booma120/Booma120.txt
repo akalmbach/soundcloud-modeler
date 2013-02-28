@@ -1,22 +1,23 @@
 TrackID	TrackTitle	ArtistID	ArtistName	WavFile	MFCCsFile	WordsFile	URL	ParentID
+77653440	mike sheridan - brokvarteret (aebeloe remix)	40613	natal zaks	_mikesheridan-brokvarteretaebeloeremix.wav	None	None	http://soundcloud.com/natalzaks/mike-sheridan-brokvarteret	2134684
 22560449	Maybes (Live recording - Daytrotter Session)	1570627	Mount Kimbie	_MaybesLiverecording-DaytrotterSession.wav	None	None	http://soundcloud.com/mountkimbie/maybes-daytrotter-session	10642540
+66611435	Aquarius Heaven feat DOP - Nasty boys	2481672	Aquarius Heaven	_AquariusHeavenfeatDOP-Nastyboys.wav	None	None	http://soundcloud.com/aquarius-heaven/aquarius-heaven-nasty-boys	2134684
 76804645	You got it	312341	Baptiste Ibar	_Yougotit.wav	None	None	http://soundcloud.com/bizigara/you-got-it	10642540
-64659462	Vapauteen @ The Flat 10/22/12	1574441	Vapauteen	_VapauteenTheFlat102212.wav	None	None	http://soundcloud.com/shawnosullivan/vapauteen-the-flat-10-22-12	5358187
-60657831	Skin Men - Construction 0.04	14370800	Opal Tapes	_SkinMen-Construction0.04.wav	None	None	http://soundcloud.com/opal-tapes/skin-men-construction-0-04	5358187
-73231243	Teaser #5	327633	Sam Harmon	_Teaser5.wav	None	None	http://soundcloud.com/glacial23/teaser-5	5358187
-79457902	El amor que no te tengo feat. Ser Humano	276518	jona jon jion	_Elamorquenotetengofeat.SerHumano.wav	None	None	http://soundcloud.com/jiony/el-amor-que-no-te-tengo	10642540
-19095261	Give Me Your Love	1052970	51717	_GiveMeYourLove.wav	None	None	http://soundcloud.com/lili_ess_ess/give-me-your-love	5358187
-54424432	MOONHEAD	159496	Modern  Witch	_MOONHEAD.wav	None	None	http://soundcloud.com/modern-witch/moonhead	5358187
-62829399	Cristian Glitch - My Own Movie (Grieche Remix) Free Download	724831	Owner of Hell Beat Limited & Silent Hell Rec	_CristianGlitch-MyOwnMovieGriecheRemixFreeDownload.wav	None	None	http://soundcloud.com/grieche/cristian-glitch-my-own	14522334
+74898391	03 Trouver Sa Voie (Thinner, 2003)	5016	Jean-Patrice Rémillard	_03TrouverSaVoieThinner2003.wav	None	None	http://soundcloud.com/pheek/03-trouver-sa-voie-thinner	10642540
+33910553	Arcade Fire - The Suburbs (Ripa's re-edit)	273	Raphaël Ripperton	_ArcadeFire-TheSuburbsRipasre-edit.wav	None	None	http://soundcloud.com/ripperton/arcade-fire-the-suburbs-ripas	2134684
+79992525	Too Close re-mix	6487463	Antonio Cruz	_TooClosere-mix.wav	None	None	http://soundcloud.com/mystic-flute/too-close-re-mix	2134684
 6851379	Honey & Tea	523734	Karim Abousleiman	_HoneyTea.wav	None	None	http://soundcloud.com/karimas/honey-tea	10642540
 68557140	Nicolas Jaar & Theatre Roosevelt - The Ego	10182	uncovering  lost memories	_NicolasJaarTheatreRoosevelt-TheEgo.wav	None	None	http://soundcloud.com/clownandsunset/nicolas-jaar-theatre-roosevelt	10642540
+40914357	Sarp Yilmaz "As if I Care" LP  OUT NOW on Apparel Music	317910	Sarp Yilmaz	_SarpYilmazAsifICareLPOUTNOWonApparelMusic.wav	None	None	http://soundcloud.com/sarpyilmaz/sarp-yilmaz-as-if-i-care-lp	2134684
+71085046	RobertBabicz - LakeExplorer	7713	Robert  Babicz	_RobertBabicz-LakeExplorer.wav	None	None	http://soundcloud.com/robbabicz/robertbabicz-lakeexplorer	2134684
 70014809	Flight Simulator	984183	Nikos Vezanis	_FlightSimulator.wav	None	None	http://soundcloud.com/nv65/flight-simulator	10642540
+74898392	04 Deux Exemples de Solitude (Thinner, 2003)	5016	Jean-Patrice Rémillard	_04DeuxExemplesdeSolitudeThinner2003.wav	None	None	http://soundcloud.com/pheek/04-deux-exemples-de-solitude	10642540
+74898393	05 Rastaphada Eh (Thinner, 2003)	5016	Jean-Patrice Rémillard	_05RastaphadaEhThinner2003.wav	None	None	http://soundcloud.com/pheek/05-rastaphada-eh-thinner-2003	10642540
+74898394	06 25 Seconds to Dawn (Thinner, 2003)	5016	Jean-Patrice Rémillard	_0625SecondstoDawnThinner2003.wav	None	None	http://soundcloud.com/pheek/06-25-seconds-to-dawn-thinner	2134684
+175579	Greg Pidcock - Sound from "Physical Break"	56367	Greg Pidcock	_GregPidcock-SoundfromPhysicalBreak.wav	None	None	http://soundcloud.com/gregpidcock/greg-pidcock-sound-from-physical-break	2134684
 74747033	paul valentin - l'anglin [FREE DOWNLOAD]	2869991	www.facebook.com/paulvalentinvalium / emotional dance music	_paulvalentin-langlinFREEDOWNLOAD.wav	None	None	http://soundcloud.com/paul-valentin/paul-valentin-langlin	10642540
-74898394	06 25 Seconds to Dawn (Thinner, 2003)	5016	Jean-Patrice Rémillard	_0625SecondstoDawnThinner2003.wav	None	None	http://soundcloud.com/pheek/06-25-seconds-to-dawn-thinner	10642540
-72790108	Shock - Heaven (Lovelock Rejected Remix)	218538	Steve Moore	_Shock-HeavenLovelockRejectedRemix.wav	None	None	http://soundcloud.com/stevemoore2600/shock-heaven-lovelock-rejected	5358187
-79307965	Dangerous dinosaurs feat. Youth Law	276518	jona jon jion	_Dangerousdinosaursfeat.YouthLaw.wav	None	None	http://soundcloud.com/jiony/dangerous-dinosaurs	10642540
-79307966	The unexamined self	276518	jona jon jion	_Theunexaminedself.wav	None	None	http://soundcloud.com/jiony/the-unexamined-self	10642540
+77597245	M.in VS Kenlou - The Funky Bounce Revanche (Loquace Bootleg)	949877	Earlydub / Upon.You / Kina Music	_M.inVSKenlou-TheFunkyBounceRevancheLoquaceBootleg.wav	None	None	http://soundcloud.com/loquace/m-in-vs-kenlou-the-funky	2134684
 80160703	S. N. Goenka	276518	jona jon jion	_S.N.Goenka.wav	None	None	http://soundcloud.com/jiony/s-n-goenka	10642540
 
-Path: ./test5/	Bytes: 661199690	 ms: 7340600
- Minutes: 122
+Path: ./LittleModels/Booma120/	Bytes: 643397610	 ms: 7296904
+ Minutes: 121

@@ -9,7 +9,7 @@ def runLDA(n, k, allWords_fn):
   l.insert(0, str(docs) + '\n')
   f = open(allWords_fn, 'w')
   f.writelines(l)
-  cmd = "~/Research/arnold/GibbsLDA++-0.2/src/lda -est -alpha 0.1 -beta 0.1"
+  cmd = "./GibbsLDA++-0.2/src/lda -est -alpha 0.1 -beta 0.1"
   cmd += " -ntopics " + str(k)
   cmd += " -niters " + str(n)
   cmd += " -savestep " + str(n) + " -dfile " + allWords_fn

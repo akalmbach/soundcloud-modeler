@@ -66,9 +66,6 @@ vector<vector<double> > calcMFCC(double ** wav_p, int blocks_read, int mfcc_orde
 }
 
 int main(int argc, char * argv[]){
-    if (argc < 4){
-        printf("please enter an output name and a list of wav files");
-    }
     //For reading the wav file
     initWindow();
     vector<vector<double> > mfccResult;

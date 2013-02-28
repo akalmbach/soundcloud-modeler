@@ -16,9 +16,12 @@ def saveFails(fails_fn):
   for track in fail_tracks:
     f.write(str(track) + "\n")
   f.close()
-   
+
+  
+  
 class Log(object):
   def __init__(self, name, path):
+    self.q = Queue.Queue() 
     self.total_wav_bytes = 0
     self.total_time_ms = 0
     self.name = fnameSafify(name)
@@ -26,7 +29,11 @@ class Log(object):
     if not os.path.exists(path):
       os.makedirs(path)
     self.entries = {}
-    
+   
+  def save(self):
+    f = codecs.open(self.path + self.name + ".txt", encoding='utf-8', mode='w')
+    f.writelines(self.ustr())
+  
   def ustr(self):
     out = u'TrackID\tTrackTitle\tArtistID\tArtistName\tWavFile\tMFCCsFile\tWordsFile\tURL\tParentID\n'
     for entry in self.entries:
@@ -72,33 +79,54 @@ class Log(object):
     return out
     
   def genMFCCs(self, vocab_fn):
+    pids = []
     for entry in self.entries:
-      if self.entries[entry].mfccs_fn == None:
-	mfcc_fn = fnameSafify(self.entries[entry].wav_fn[:-4] + "_" + vocab_fn[:-4] + "_MFCC_RAW.txt")
-	cmd = "./MFCC/genMFCC " + self.path + mfcc_fn + " " + self.path+self.entries[entry].wav_fn + " &"
-	print cmd
-	os.system(cmd)
+      if self.entries[entry].mfccs_fn == None:    
+	mfcc_fn = fnameSafify(self.entries[entry].wav_fn[:-4] + "_MFCC_RAW.txt")
+	cmd = "./MFCC/genMFCC " + self.path + mfcc_fn + " " + self.path+self.entries[entry].wav_fn
 	self.entries[entry].mfccs_fn = mfcc_fn
-    raw_input(">>")
+	if all (pid != 0 for pid in pids) or pids == []:
+	  if len(pids) < 6:
+	    pids.append(os.fork())
+	  else:
+	    [pid, st] = os.wait()
+	    pids.remove(pid)
+	    pids.append(os.fork())
+	if any(pid == 0 for pid in pids):
+	  print cmd
+	  os.system(cmd)
+	  os._exit(os.EX_OK)
+    
+    if any(pid == 0 for pid in pids):
+      os._exit(os.EX_OK)
+    for pid in pids:
+      os.waitpid(pid, 0)
+    pids = []  
     for entry in self.entries:
       if self.entries[entry].mfccs_fn != None:
-	kmfccs_fn = self.entries[entry].wav_fn[:-4] + "KMFCCs.txt"
+	kmfccs_fn = self.entries[entry].wav_fn[:-4] + "_KMFCCs.txt"
 	words_fn = self.entries[entry].wav_fn[:-4] + "_WORDS.txt"
-	cmd = "./applyDict " + vocab_fn + " " + self.path+self.entries[entry].mfccs_fn + " " + self.path+kmfccs_fn + " " + self.path+words_fn + " 100000 > /dev/null &"
-	print cmd
-	os.system(cmd)
+	cmd = "./MFCC/applyDict " + vocab_fn + " " + self.path+self.entries[entry].mfccs_fn + " " + self.path+kmfccs_fn + " " + self.path+words_fn + " 100000 > /dev/null"
 	self.entries[entry].words_fn = words_fn
-    raw_input(">>")
+	if all (pid != 0 for pid in pids) or pids == []:
+	  if len(pids) < 6:
+	    pids.append(os.fork())
+	  else:
+	    [pid, st] = os.wait()
+	    pids.remove(pid)
+	    pids.append(os.fork())
+	if any (pid == 0 for pid in pids):
+	  print cmd
+	  os.system(cmd)
+	  os._exit(os.EX_OK)
+	  
+    if any(pid == 0 for pid in pids):
+      os._exit(os.EX_OK)
+    for pid in pids:
+      os.waitpid(pid, 0)
     cmd = "cat " + self.wordsFilesStr() + "> " + self.path + self.name + "_ALLWORDS.txt"
     print cmd
     os.system(cmd)
-  
-  def save(self, extended=False):
-    f = codecs.open(self.path + self.name + ".txt", encoding='utf-8', mode='w')
-    if not extended:
-      f.writelines(self.ustr())
-    else:
-      f.writelines(self.sigmaStr())
     
   def addEntry(self, newEntry, bytes):
     self.entries[newEntry.track.id] = newEntry
@@ -185,19 +213,28 @@ def getTrack(track, path):
     return [None, 0]
   print "Downloading " + track.title
   url = track.permalink_url + "/download"
-  fname = fnameSafify(track.title) + ".mp3"
+  fname = fnameSafify(track.title) + ".orig"
   if not os.path.isfile(path + fname):
     download(url, path + fname)
-  wav = wavifier.wavify(path + fname)
-  if (wav[1] > os.stat(path + fname).st_size):
+  st = 0
+  if wavifier.checkIfWavFile(path + fname):
+    mp3_fn = None
+    wav_fn = path + "_" + fname.rsplit(".", 1)[0] + ".wav"
+    wav_size = wavifier.audioFormat(path + fname, wav_fn)
+  else:
+    mp3_fn = path + fname
+    [wav_fn, wav_size, st] = wavifier.wavify(path + fname)
+  if (st == 0 and wav_size != None):
     thisLog = LogEntry(track)
-    thisLog.mp3_fn = path + fname
-    thisLog.wav_fn = wav[0].split("/")[-1]
-    return [thisLog, wav[1]]
+    thisLog.mp3_fn = mp3_fn
+    thisLog.wav_fn = wav_fn.split("/")[-1]
+    return [thisLog, wav_size]
   else:
     print "ERROR CONVERTING! DISCARDING TRACK"
     fail_tracks.append(track.id)
-    os.system("rm " + wav[0] + " " + path + fname)
+    os.system("rm " + wav_fn)
+    if mp3_fn != None:
+      os.system("rm " + path + fname)
     return [None, 0]
    
 def doVocabQuery(vocab, path, mygenres, dictSizeMB, maxLengthMin):
@@ -234,14 +271,14 @@ def doBFSQuery(path, name, maxReps, maxLengthMin, totalLengthMin):
     print unidecode(user.full_name)
     if unidecode(user.full_name) == name:
       print "Found Root User: " + user.full_name
-      log = BFSQueryHelper(path, user, log, maxReps, maxLength, totalLength)
+      log.q.put([user, user])
+      log = BFSQueryHelper(log, maxReps, maxLength, totalLength)
       return log
   return None
 
-def BFSQueryHelper(path, user, log, maxReps, maxLength, totalLength):
-  q = Queue.Queue()
+def BFSQueryHelper(log, maxReps, maxLength, totalLength):
   i = 0
-  parent = user
+  [user, parent] = log.q.get() 
   while(log.total_time_ms < totalLength):
     print "Expanding User: " + user.full_name
     tracks = client.get('/users/'+str(user.id)+'/tracks')
@@ -249,7 +286,11 @@ def BFSQueryHelper(path, user, log, maxReps, maxLength, totalLength):
     
     for track in tracks:
       if (track.duration <= maxLength and track.downloadable):
-	[entry, size] = getTrack(track, path)
+        try:
+	  [entry, size] = getTrack(track, log.path)
+        except urllib2.HTTPError as e:
+          print e
+          continue 
 	if entry != None:
 	  entry.parent = parent
 	  log.addEntry(entry, size)
@@ -257,14 +298,15 @@ def BFSQueryHelper(path, user, log, maxReps, maxLength, totalLength):
 	if i >= maxReps or log.total_time_ms >= totalLength:
 	  break
 	
-    followings = client.get('/users/'+str(user.id)+'/followings')
+    followings = client.get('/users/'+str(user.id)+'/followings', limit=maxReps/2)
     print unidecode(log.ustr())
     for child in followings:
       if child.full_name == "":
 	continue
-      q.put([child, user])
+      log.q.put([child, user])
       
-    if q.empty():
+    if log.q.empty():
       break
-    [user, parent] = q.get()    
+    [user, parent] = log.q.get()
+      
   return log
