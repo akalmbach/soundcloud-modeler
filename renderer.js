@@ -144,13 +144,9 @@
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		dragged.node.fixed = true                  
-		var track = SC.get("/tracks/"+dragged.node.name);
 		var url = "tracks/" + dragged.node.name.toString()
 		console.log(url)
-                console.log(track.title)
-		SC.stream(track, function(sound){
-		  sound.play();
-		});
+                SC.stream("/tracks/293", {autoPlay: true});
 	    }
 	    $(canvas).unbind('mouseup', handler.playStream)
 	    return false
