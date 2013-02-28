@@ -137,9 +137,9 @@
 	    $(canvas).bind('mousemove', handler.dragged)
 	    $(window).bind('mouseup', handler.dropped)
 	    $(canvas).bind('dblclick', handler.followlink)
-	    $(canvas).bind('mouseup', handler.playStream)
+	    //$(canvas).bind('mouseup', handler.playStream)
 	  },
-	  playStream:function(e){
+	  /*playStream:function(e){
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
@@ -151,7 +151,7 @@
 	    }
 	    $(canvas).unbind('mouseup', handler.playStream)
 	    return false
-	  },
+	  },*/
 	  followlink:function(e){
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
