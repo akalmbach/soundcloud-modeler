@@ -137,7 +137,7 @@
 	    $(canvas).bind('mousemove', handler.dragged)
 	    $(window).bind('mouseup', handler.dropped)
 	    $(canvas).bind('dblclick', handler.followlink)
-	    $(canvas).bind('mouseup', handler.playStream)
+	    $(canvas).bind('click', handler.playStream)
 	  },
 	  playStream:function(e){
 	    $(canvas).unbind('mousemove', handler.dragged)
@@ -149,7 +149,7 @@
 		console.log(url)
                 SC.stream(url, {autoPlay: true});
 	    }
-	    $(canvas).unbind('mouseup', handler.playStream)
+	    $(canvas).unbind('click', handler.playStream)
 	    return false
 	  },
 	  followlink:function(e){
@@ -159,10 +159,10 @@
 		var url=dragged.node.data.link;
 		if (url) window.open(url, '_blank')
 	    }
+            $(canvas).unbind('dblclick', handler.followlink)
 	    return false
 	  },
           dragged:function(e){
-	    $(canvas).unbind('mouseup', handler.followlink)
             var old_nearest = nearest && nearest.node._id
             var pos = $(canvas).offset();
             var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
