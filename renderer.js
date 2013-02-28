@@ -146,7 +146,7 @@
 		dragged.node.fixed = true                  
 		var url = "/tracks/" + dragged.node.name.toString()
 		console.log(url)
-                SC.stream("/tracks/70014809", {autoPlay: true});
+                SC.stream(url, {autoPlay: true});
 	    }
 	    $(canvas).unbind('mouseup', handler.playStream)
 	    return false
