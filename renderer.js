@@ -143,7 +143,8 @@
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
-		dragged.node.fixed = true                  
+		dragged.node.fixed = true
+                dragged.node.data.color = 'rgba(20,180,20,0.8)'
 		var url = "/tracks/" + dragged.node.name.toString()
 		console.log(url)
                 SC.stream(url, {autoPlay: true});
@@ -156,7 +157,7 @@
 	    if (dragged.node !== null){
 		dragged.node.fixed = true                  
 		var url=dragged.node.data.link;
-		if (url) window.location = url;
+		if (url) window.open(url, '_blank')
 	    }
 	    return false
 	  },
