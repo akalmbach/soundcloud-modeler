@@ -153,6 +153,7 @@
 	    return false
 	  },*/
 	  followlink:function(e){
+            console.log("in handler")
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		dragged.node.fixed = true                  
