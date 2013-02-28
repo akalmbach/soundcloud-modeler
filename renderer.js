@@ -147,7 +147,7 @@
 		var track = SC.get("/tracks/"+dragged.node.name);
 		var url = "tracks/" + dragged.node.name.toString()
 		console.log(url)
-                console.log(track)
+                console.log(track.title)
 		SC.stream(track, function(sound){
 		  sound.play();
 		});
