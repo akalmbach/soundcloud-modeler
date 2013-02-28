@@ -8,15 +8,21 @@
   <body>
   <canvas id="viewport" width="1280" height="500"></canvas>
 
-  <script src="./jquery.min.js"></script>
-  <script src="./arbor.js"></script>
-  <script src="./graphics.js"></script>
+  <script src="./resources/jquery.min.js"></script>
+  <script src="./resources/arbor.js"></script>
+  <script src="./resources/graphics.js"></script>
   <script src="./renderer.js"></script> 
+  <script src="./resources/soundmanagerv297a-20130101/script/soundmanager2.js"></script>
+
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
+
   <script language="javascript" type="text/javascript">
-  
-    var sys = arbor.ParticleSystem(900, 500, 0.5);
+    SC.initialize({
+      client_id: 'ef553ea9bbb7541955873e5569f0bc90'
+    });
+    var sys = arbor.ParticleSystem(500, 250, 0.98);
     sys.parameters({gravity:true});
-    sys.renderer = Renderer("#viewport");
+    sys.renderer = Renderer("#viewport", SC);
     
     var data = {
       nodes:{

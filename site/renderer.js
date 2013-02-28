@@ -5,6 +5,7 @@
     var ctx = canvas.getContext("2d");
     var gfx = arbor.Graphics(canvas)
     var particleSystem = null
+    var scale = 0
 
     var that = {
       init:function(system){
@@ -29,13 +30,14 @@
           // determine the box size and round off the coords if we'll be 
           // drawing a text label (awful alignment jitter otherwise...)
           var label = node.data.label||""
+	  
           var w = ctx.measureText(""+label).width + 10
           if (!(""+label).match(/^[ \t]*$/)){
             pt.x = Math.floor(pt.x)
             pt.y = Math.floor(pt.y)
           }else{
             label = null
-          }
+          } 
 
           // draw a rectangle centered at pt
           if (node.data.color) ctx.fillStyle = node.data.color
@@ -134,10 +136,10 @@
 	    if (dragged.node !== null) dragged.node.fixed = true
 	    $(canvas).bind('mousemove', handler.dragged)
 	    $(window).bind('mouseup', handler.dropped)
-	    $(canvas).bind('mouseup', handler.followlink)
-	    //$(canvas).bind('mouseup', handler.playStream)
+	    $(canvas).bind('dblclick', handler.followlink)
+	    $(canvas).bind('mouseup', handler.playStream)
 	  },
-	  /*playStream:function(e){
+	  playStream:function(e){
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
@@ -151,9 +153,8 @@
 	    }
 	    $(canvas).unbind('mouseup', handler.playStream)
 	    return false
-	  },*/
+	  },
 	  followlink:function(e){
-	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		dragged.node.fixed = true                  
