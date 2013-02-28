@@ -136,7 +136,7 @@
 	    if (dragged.node !== null) dragged.node.fixed = true
 	    $(canvas).bind('mousemove', handler.dragged)
 	    $(window).bind('mouseup', handler.dropped)
-	    $(canvas).bind('dblclick', handler.followlink)
+	    $(canvas).bind('click', handler.followlink)
 	    //$(canvas).bind('mouseup', handler.playStream)
 	  },
 	  /*playStream:function(e){
@@ -160,7 +160,6 @@
 		var url=dragged.node.data.link;
 		if (url) window.open(url, '_blank')
 	    }
-            $(canvas).unbind('dblclick', handler.followlink)
 	    return false
 	  },
           dragged:function(e){
