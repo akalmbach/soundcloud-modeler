@@ -145,6 +145,7 @@
 	    if (dragged.node !== null){
 		dragged.node.fixed = true                  
 	    }
+	    $(canvas).bind('mouseup', handler.dragged)
 	    return false
 	  },
 	    
