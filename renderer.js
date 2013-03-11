@@ -137,20 +137,19 @@
 	    $(canvas).bind('mousemove', handler.dragged)
 	    $(window).bind('mouseup', handler.dropped)
 	    $(canvas).bind('mousedown', handler.selected)
-	    //$(canvas).bind('mouseup', handler.playStream)
 	  },
 	  selected:function(e){
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		dragged.node.fixed = true
 		console.log("selected " + dragged.node.name.toString())
-		$(canvas).bind('mousedown', handler.followlink)
+		$(canvas).bind('mousedown', handler.playStream)
 	    }
 	    $(canvas).unbind('mousedown', handler.selected)
 	    return false
 	  },
 	    
-	  /*playStream:function(e){
+	  playStream:function(e){
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
@@ -160,9 +159,9 @@
 		console.log(url)
                 SC.stream(url, {autoPlay: true});
 	    }
-	    $(canvas).unbind('mouseup', handler.playStream)
+	    $(canvas).unbind('mousedown', handler.playStream)
 	    return false
-	  },*/
+	  },
 	  followlink:function(e){
             console.log("in handler")
 	    if (selected===null || selected.node===undefined) return
