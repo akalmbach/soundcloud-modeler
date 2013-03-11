@@ -144,8 +144,9 @@
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		dragged.node.fixed = true
-		console.log("selected" + dragged.node.name.toString())
+		console.log("selected " + dragged.node.name.toString())
 	    }
+	    $(canvas).unbind('mousedown', handler.selected)
 	    return false
 	  },
 	    
