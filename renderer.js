@@ -144,7 +144,7 @@
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		dragged.node.fixed = true
-		console.log("selected" + draggednode.data.link)
+		console.log("selected" + dragged.node.data.link)
 	    }
 	    return false
 	  },
