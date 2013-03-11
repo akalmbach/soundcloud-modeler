@@ -167,11 +167,13 @@
             console.log("in handler")
 	    if (selected===null || selected.node===undefined) return
 	    if (selected.node !== null){
+		console.log("not null");
 		selected.node.fixed = true                  
 		var url=selected.node.data.link;
 		console.log(url)
 		if (url) window.open(url, '_blank')
 	    }
+	    $(canvas).unbind('click', handler.followlink)
 	    return false
 	  },
           dragged:function(e){
