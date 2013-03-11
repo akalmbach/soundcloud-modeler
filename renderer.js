@@ -136,7 +136,6 @@
 	    if (dragged.node !== null) dragged.node.fixed = true
 	    $(canvas).bind('mousemove', handler.dragged)
 	    $(window).bind('mouseup', handler.dropped)
-	    $(canvas).bind('click', handler.followlink)
 	    $(canvas).bind('mousedown', handler.selected)
 	    //$(canvas).bind('mouseup', handler.playStream)
 	  },
@@ -145,6 +144,7 @@
 	    if (dragged.node !== null){
 		dragged.node.fixed = true
 		console.log("selected " + dragged.node.name.toString())
+		$(canvas).bind('mousedown', handler.followlink)
 	    }
 	    $(canvas).unbind('mousedown', handler.selected)
 	    return false
@@ -173,7 +173,7 @@
 		console.log(url)
 		if (url) window.open(url, '_blank')
 	    }
-	    $(canvas).unbind('click', handler.followlink)
+	    $(canvas).unbind('mousedown', handler.followlink)
 	    return false
 	  },
           dragged:function(e){
