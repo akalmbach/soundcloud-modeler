@@ -164,10 +164,10 @@
 	  },*/
 	  followlink:function(e){
             console.log("in handler")
-	    if (dragged===null || dragged.node===undefined) return
-	    if (dragged.node !== null){
-		dragged.node.fixed = true                  
-		var url=dragged.node.data.link;
+	    if (selected===null || selected.node===undefined) return
+	    if (selected.node !== null){
+		selected.node.fixed = true                  
+		var url=selected.node.data.link;
 		console.log(url)
 		if (url) window.open(url, '_blank')
 	    }
