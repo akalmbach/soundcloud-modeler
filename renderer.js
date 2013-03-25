@@ -156,7 +156,7 @@
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
-		if (nodeWithStream !=== null){
+		if (nodeWithStream !== null){
 		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
 		  SC.soundmanager.stop(nodeWithStream.data.name);
 		  nodeWithStream = null;
