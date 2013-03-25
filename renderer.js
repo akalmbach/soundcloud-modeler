@@ -169,7 +169,9 @@
 		
                 SC.stream(url, function(sound){
 		  sound.play();
-                  console.log("Hey!");
+                  ctx.fillStyle = "black";
+                  ctx.font = "bold 16px Arial";
+                  ctx.fillText('test text', 0, 0);
 		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
