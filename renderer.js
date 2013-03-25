@@ -159,7 +159,7 @@
 		if (streaming === true){
 		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
 		  SC.recordStop();
-		  stream = null;
+		  streaming === false;
 		}
 		dragged.node.fixed = true
                 dragged.node.data.color = 'rgba(20,180,20,0.8)'
