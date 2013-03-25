@@ -6,6 +6,9 @@
     var gfx = arbor.Graphics(canvas)
     var particleSystem = null
     var scale = 0
+    
+    var stream = null;
+    var nodeWithStream = null;
 
     var that = {
       init:function(system){
@@ -153,11 +156,17 @@
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
+		if (stream !== null){
+		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
+		  stream.stop();
+		  stream = null;
+		}
 		dragged.node.fixed = true
                 dragged.node.data.color = 'rgba(20,180,20,0.8)'
 		var url = "/tracks/" + dragged.node.name.toString()
 		console.log(url)
-                SC.stream(url, {autoPlay: true});
+		nodeWithStream = dragged.node;
+                stream = SC.stream(url, {autoPlay: true});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
 	    return false
