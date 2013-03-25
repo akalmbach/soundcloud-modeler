@@ -156,26 +156,20 @@
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
-		if (nodeWithStream !== null){
+		if (stream !== null){
 		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
-		  soundManager.stop(nodeWithStream.data.name);
-		  nodeWithStream = null;
+		  //stream.stop();
+		  stream = null;
 		}
 		dragged.node.fixed = true
                 dragged.node.data.color = 'rgba(20,180,20,0.8)'
 		var url = "/tracks/" + dragged.node.name.toString()
 		console.log(url)
-		soundManager.createSound({
-		  id: dragged.node.name,
-		  url: url,
-		  autoLoad: true,
-		  autoPlay: true,
-		  onload: function() {
-		    alert('The sound '+this.id+' loaded!');
-		  },
-		  volume: 75
-		});
 		nodeWithStream = dragged.node;
+		
+                stream = SC.stream(url, function(sound){
+		  sound.play();
+		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
 	    return false
