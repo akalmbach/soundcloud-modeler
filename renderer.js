@@ -162,7 +162,7 @@
 	    $(canvas).unbind('mousedown', handler.playStream)
 	    return false
 	  },
-	  /*followlink:function(e){
+	  followlink:function(e){
             console.log("in handler")
 	    if (selected===null || selected.node===undefined) return
 	    if (selected.node !== null){
@@ -174,7 +174,7 @@
 	    }
 	    $(canvas).unbind('mousedown', handler.followlink)
 	    return false
-	  }*/,
+	  },
           dragged:function(e){
             var old_nearest = nearest && nearest.node._id
             var pos = $(canvas).offset();
