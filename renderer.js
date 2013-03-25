@@ -171,7 +171,7 @@
 		  sound.play();
                   ctx.fillStyle = "black";
                   ctx.font = "bold 16px Arial";
-                  ctx.fillText('test text', 0, 0);
+                  ctx.fillText('test text', 100, 100);
 		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
