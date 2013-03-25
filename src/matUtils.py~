@@ -19,7 +19,7 @@ def readMat(filename):
 def printMat(mat, f):
   for doc1 in mat:
     for doc2 in doc1:
-      f.write("%.2f" % doc2 + " ")
+      f.write(("%.2f" % doc2) + " ")
     f.write("\n")
     
 def scaleMat(mat, scale):

@@ -1,4 +1,4 @@
-import pystache, codecs
+import pystache
 
 def writePage(index_fn, adj, labels, tpl_fn):
   adjs = []

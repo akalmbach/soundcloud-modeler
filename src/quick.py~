@@ -1,0 +1,9 @@
+import musicModel, loader3, graphWriter, sys
+
+# doBFSQuery(path, name, maxReps, maxLengthMin, totalLengthMin):
+log = loader3.doBFSQuery('../LittleModels/Palov/', 'Palov and Mishkin', 16, 15, 360)
+log.genMFCCs('../Vocabs/ExploreVocab/ExploreVocab-dict')
+musicModel.runLDA(1000, 5, log.all_mfccs_fn)
+theta = musicModel.readTheta(log.path + 'model-final.theta')
+[adj, labels] = musicModel.genGraph(theta, log)
+graphWriter.writePage('../site/palov.html', adj, labels, '../site/resources/index.tpl')

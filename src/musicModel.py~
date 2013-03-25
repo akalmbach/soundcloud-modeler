@@ -96,7 +96,7 @@ def genGraph(theta, log):
     track = log.entries[entry].track
     labels.append({'title': '   ', 'trackid':track.id, 'r':180, 'g':20, 'b':20, 'a':0.8})
   for artist in log.artists:
-    labels.append({'title':artist.username, 'trackid':artist.id, 'r':20, 'b':180, 'g':20, 'a':0.8})
+    labels.append({'title':artist.full_name, 'trackid':artist.id, 'r':20, 'b':180, 'g':20, 'a':0.8})
   return adj, labels
   
 def genTracksxTracks(theta):

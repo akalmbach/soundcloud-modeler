@@ -85,7 +85,8 @@ class Log(object):
     for entry in self.entries:
       if self.entries[entry].mfccs_fn == None:    
 	mfcc_fn = fnameSafify(self.entries[entry].wav_fn[:-4] + "_MFCC_RAW.txt")
-	self.entries[entry].mfccs_fn = mfcc_fn
+		  self.entries[entry].mfccs_fn = mfcc_fn
+
 	if not os.path.exists(self.path + mfcc_fn):
 	  cmd = "/home/arnold/Projects/soundcloud-modeler/MFCC/genMFCC " + self.path + mfcc_fn + " " + self.path+self.entries[entry].wav_fn
 	  if all (pid != 0 for pid in pids) or pids == []:
