@@ -7,7 +7,7 @@
     var particleSystem = null
     var scale = 0
     
-    var streaming = false;
+    var stream = null;
     var nodeWithStream = null;
 
     var that = {
@@ -156,18 +156,26 @@
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
-		if (streaming === true){
+		if (nodeWithStream !== null){
 		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
-		  SC.recordStop();
-		  streaming === false;
+		  soundManager.stop(nodeWithStream.data.name);
+		  nodeWithStream = null;
 		}
 		dragged.node.fixed = true
                 dragged.node.data.color = 'rgba(20,180,20,0.8)'
 		var url = "/tracks/" + dragged.node.name.toString()
 		console.log(url)
+		soundManager.createSound({
+		  id: dragged.node.name,
+		  url: url,
+		  autoLoad: true,
+		  autoPlay: true,
+		  onload: function() {
+		    alert('The sound '+this.id+' loaded!');
+		  },
+		  volume: 75
+		});
 		nodeWithStream = dragged.node;
-                streaming = true;
-		SC.stream(url, {autoPlay: true});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
 	    return false
