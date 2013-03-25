@@ -164,11 +164,12 @@
 		dragged.node.fixed = true
                 dragged.node.data.color = 'rgba(20,180,20,0.8)'
 		var url = "/tracks/" + dragged.node.name.toString()
-		console.log(url)
+		console.log("streaming" + url)
 		nodeWithStream = dragged.node;
 		
                 SC.stream(url, function(sound){
 		  sound.play();
+                  console.log("Hey!");
 		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
