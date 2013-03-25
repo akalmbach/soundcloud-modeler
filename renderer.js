@@ -158,7 +158,7 @@
 	    if (dragged.node !== null){
 		if (nodeWithStream !== null){
 		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
-		  $(window).soundManager.stopAll();
+		  soundManager.stopAll();
 		  nodeWithStream = null;
 		}
 		dragged.node.fixed = true
