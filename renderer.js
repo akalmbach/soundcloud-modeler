@@ -158,7 +158,7 @@
 	    if (dragged.node !== null){
 		if (nodeWithStream !== null){
 		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
-		  SC.soundmanager.stop(nodeWithStream.data.name);
+		  SC.soundmanager.stopAll();
 		  nodeWithStream = null;
 		}
 		dragged.node.fixed = true
@@ -169,7 +169,6 @@
 		
                 SC.stream(url, function(sound){
 		  sound.play();
-		  sound.id = dragged.node.data.name;
 		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
