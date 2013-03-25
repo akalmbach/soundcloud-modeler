@@ -7,7 +7,7 @@
     var particleSystem = null
     var scale = 0
     
-    var stream = null;
+    var streaming = false;
     var nodeWithStream = null;
 
     var that = {
@@ -156,9 +156,9 @@
 	    $(canvas).unbind('mousemove', handler.dragged)
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
-		if (stream !== null){
+		if (streaming === true){
 		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
-		  stream.stop();
+		  SC.recordStop();
 		  stream = null;
 		}
 		dragged.node.fixed = true
@@ -166,7 +166,8 @@
 		var url = "/tracks/" + dragged.node.name.toString()
 		console.log(url)
 		nodeWithStream = dragged.node;
-                stream = SC.stream(url, {autoPlay: true});
+                streaming = true;
+		SC.stream(url, {autoPlay: true});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
 	    return false
