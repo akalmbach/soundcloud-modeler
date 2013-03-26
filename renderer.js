@@ -26,7 +26,7 @@
 	if (nowPlaying !== null){
 	    ctx.fillStyle = "black";
 	    ctx.font = "bold 16px Arial";
-            var size = ctx.measureText('Now Playing:' + nowPlaying).width
+            var size = ctx.measureText('Now Playing:' + nowPlaying)
             ctx.fillText('Now Playing:' + nowPlaying, size.width, size.height);
 	}
 
