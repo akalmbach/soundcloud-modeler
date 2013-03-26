@@ -174,7 +174,7 @@
 		
                 SC.stream(url, function(sound){
 		  sound.play();
-		  nowPlaying = sound.id;
+		  nowPlaying = url;
 		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
