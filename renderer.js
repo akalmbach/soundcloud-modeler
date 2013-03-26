@@ -27,6 +27,8 @@
 	    ctx.fillStyle = "black";
 	    ctx.font = "bold 16px Arial";
             var size = ctx.measureText('Now Playing:' + nowPlaying)
+            console.log(size.width)
+            console.log(size.height)
             ctx.fillText('Now Playing:' + nowPlaying, size.width, size.height);
 	}
 
