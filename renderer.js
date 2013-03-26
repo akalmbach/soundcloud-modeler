@@ -7,7 +7,7 @@
     var particleSystem = null
     var scale = 0
     
-    var stream = null;
+    var nowPlaying = null;
     var nodeWithStream = null;
 
     var that = {
@@ -23,6 +23,10 @@
         if (!particleSystem) return
 
         gfx.clear() // convenience ƒ: clears the whole canvas rect
+	if (nowPlaying !== null){
+	    ctx.fillStyle = "black";
+	    ctx.font = "bold 16px Arial";
+            ctx.fillText('Now Playing:' + nowPlaying, 100, 100);
 
         // draw the nodes & save their bounds for edge drawing
         var nodeBoxes = {}
@@ -169,9 +173,7 @@
 		
                 SC.stream(url, function(sound){
 		  sound.play();
-                  ctx.fillStyle = "black";
-                  ctx.font = "bold 16px Arial";
-                  ctx.fillText('test text', 100, 100);
+		  nowPlaying = sound.id;
 		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
