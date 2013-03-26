@@ -27,6 +27,7 @@
 	    ctx.fillStyle = "black";
 	    ctx.font = "bold 16px Arial";
             ctx.fillText('Now Playing:' + nowPlaying, 100, 100);
+	}
 
         // draw the nodes & save their bounds for edge drawing
         var nodeBoxes = {}
