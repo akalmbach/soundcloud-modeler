@@ -26,7 +26,8 @@
 	if (nowPlaying !== null){
 	    ctx.fillStyle = "black";
 	    ctx.font = "bold 16px Arial";
-            ctx.fillText('Now Playing:' + nowPlaying, canvas.width - 25, canvas.height - 25);
+            var size = ctx.measureText('Now Playing:' + nowPlaying).width
+            ctx.fillText('Now Playing:' + nowPlaying, size.width, size.height);
 	}
 
         // draw the nodes & save their bounds for edge drawing
