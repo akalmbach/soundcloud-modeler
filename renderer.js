@@ -7,7 +7,6 @@
     var particleSystem = null
     var scale = 0
     
-    var nowPlaying = null;
     var nodeWithStream = null;
 
     var that = {
@@ -23,11 +22,11 @@
         if (!particleSystem) return
 
         gfx.clear() // convenience ƒ: clears the whole canvas rect
-	if (nowPlaying !== null){
+	if (nodeWithStream !== null){
 	    ctx.fillStyle = "black";
 	    ctx.font = "bold 16px Arial";
-            var size = ctx.measureText('Now Playing:' + nowPlaying)
-            ctx.fillText('Now Playing:' + nowPlaying, size.width + 10, 30);
+            var size = ctx.measureText('Now Playing:' + nodeWithStream.data.longname)
+            ctx.fillText('Now Playing:' + nodeWithStream.data.longname, size.width + 10, 30);
 	}
 
         // draw the nodes & save their bounds for edge drawing
@@ -49,11 +48,12 @@
           } 
 
           // draw a rectangle centered at pt
-          if (node.data.color) ctx.fillStyle = node.data.color
-          else ctx.fillStyle = "rgba(0,0,0,.2)"
-          if (node.data.color=='none') ctx.fillStyle = "white"
+	  if (node.data.type =='topic') ctx.fillStyle("rgba(20,20,20,0.8)");
+	  if (node.data.type =='track') ctx.fillStyle("rgba(180,20,20,0.8)");
+	  if (node.data.type =='artist') ctx.fillStyle("rgba(20,20,180,0.8)");
+	  if (node.data.type =='playing') ctx.fillStyle("rgba(20,180,20,0.8)");			
 
-          if (node.data.shape=='dot'){
+          if (node.data.type=='track' or node.data.type=='playing'){
             gfx.oval(pt.x-w/2, pt.y-w/2, w,w, {fill:ctx.fillStyle})
             nodeBoxes[node.name] = [pt.x-w/2, pt.y-w/2, w,w]
           }else{
@@ -66,7 +66,6 @@
             ctx.font = "11px Helvetica"
             ctx.textAlign = "center"
             ctx.fillStyle = "white"
-            if (node.data.color=='none') ctx.fillStyle = '#333333'
             ctx.fillText(label||"", pt.x, pt.y+4)
             ctx.fillText(label||"", pt.x, pt.y+4)
           }
@@ -151,7 +150,7 @@
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		dragged.node.fixed = true
-		console.log("selected " + dragged.node.name.toString())
+		console.log("selected " + dragged.node.name)
 		$(canvas).bind('mousedown', handler.playStream)
 	    }
 	    $(canvas).unbind('mousedown', handler.selected)
@@ -163,19 +162,18 @@
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		if (nodeWithStream !== null){
-		  nodeWithStream.data.color = 'rgba(180,20,20,0.8)';
+		  nodeWithStream.data.type = 'playing';
 		  soundManager.stopAll();
 		  nodeWithStream = null;
 		}
 		dragged.node.fixed = true
-                dragged.node.data.color = 'rgba(20,180,20,0.8)'
-		var url = "/tracks/" + dragged.node.name.toString()
+                dragged.node.data.type = 'track'
+		var url = "/tracks/" + dragged.node.name
 		console.log("streaming" + url)
-		nodeWithStream = dragged.node;
 		
                 SC.stream(url, function(sound){
 		  sound.play();
-		  nowPlaying = url;
+		  nodeWithStream = dragged.node;
 		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
