@@ -151,33 +151,25 @@
 	    if (dragged.node !== null){
 		dragged.node.fixed = true
 		console.log("selected " + dragged.node.name)
-		$(canvas).bind('mousedown', handler.playStream)
+		$(canvas).bind('mousedown', handler.followlink)
 	    }
+	    if (nodeWithStream !== null){
+	      nodeWithStream.data.type = 'track';
+	      soundManager.stopAll();
+	      nodeWithStream = null;
+	    }
+	    dragged.node.fixed = true
+	    var url = "/tracks/" + dragged.node.name
+	    console.log("streaming" + url)
+	    dragged.node.data.type = 'playing'
+	    nodeWithStream = dragged.node;
+	    SC.stream(url, function(sound){
+	      sound.play();
+	    });
 	    $(canvas).unbind('mousedown', handler.selected)
 	    return false
 	  },
 	    
-	  playStream:function(e){
-	    $(canvas).unbind('mousemove', handler.dragged)
-	    if (dragged===null || dragged.node===undefined) return
-	    if (dragged.node !== null){
-		if (nodeWithStream !== null){
-		  nodeWithStream.data.type = 'track';
-		  soundManager.stopAll();
-		  nodeWithStream = null;
-		}
-		dragged.node.fixed = true
-		var url = "/tracks/" + dragged.node.name
-		console.log("streaming" + url)
-		dragged.node.data.type = 'playing'
-		nodeWithStream = dragged.node;
-                SC.stream(url, function(sound){
-		  sound.play();
-		});
-	    }
-	    $(canvas).unbind('mousedown', handler.playStream)
-	    return false
-	  },
 	  followlink:function(e){
             console.log("in handler")
 	    if (selected===null || selected.node===undefined) return
