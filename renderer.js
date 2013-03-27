@@ -170,9 +170,9 @@
 		var url = "/tracks/" + dragged.node.name
 		console.log("streaming" + url)
 		dragged.node.data.type = 'playing'
+		nodeWithStream = dragged.node;
                 SC.stream(url, function(sound){
 		  sound.play();
-		  nodeWithStream = dragged.node;
 		});
 	    }
 	    $(canvas).unbind('mousedown', handler.playStream)
