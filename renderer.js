@@ -25,8 +25,8 @@
 	if (nodeWithStream !== null){
 	    ctx.fillStyle = "black";
 	    ctx.font = "bold 16px Arial";
-            var size = ctx.measureText('Now Playing:' + nodeWithStream.data.longname)
-            ctx.fillText('Now Playing:' + nodeWithStream.data.longname, 30, 30);
+            var size = ctx.measureText('Now Playing: ' + nodeWithStream.data.longname)
+            ctx.fillText('Now Playing: ' + nodeWithStream.data.longname, 30, 30);
 	}
 
         // draw the nodes & save their bounds for edge drawing
