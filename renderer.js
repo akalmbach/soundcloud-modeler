@@ -162,15 +162,14 @@
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
 		if (nodeWithStream !== null){
-		  nodeWithStream.data.type = 'playing';
+		  nodeWithStream.data.type = 'track';
 		  soundManager.stopAll();
 		  nodeWithStream = null;
 		}
 		dragged.node.fixed = true
-                dragged.node.data.type = 'track'
 		var url = "/tracks/" + dragged.node.name
 		console.log("streaming" + url)
-		
+		dragged.node.data.type = 'playing'
                 SC.stream(url, function(sound){
 		  sound.play();
 		  nodeWithStream = dragged.node;
