@@ -151,7 +151,7 @@
 	    if (dragged.node !== null){
 		dragged.node.fixed = true
 		console.log("selected " + dragged.node.name)
-		$(canvas).bind('mousedown', handler.followlink)
+		dragged.bind('mousedown', handler.followlink)
 	    }
 	    if (nodeWithStream !== null){
 	      nodeWithStream.data.type = 'track';
@@ -180,7 +180,7 @@
 		console.log(url)
 		if (url) window.open(url, '_blank')
 	    }
-	    $(canvas).unbind('mousedown', handler.followlink)
+	    dragged.unbind('mousedown', handler.followlink)
 	    return false
 	  },
           dragged:function(e){
