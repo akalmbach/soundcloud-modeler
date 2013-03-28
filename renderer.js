@@ -139,6 +139,7 @@
         var handler = {
           clicked:function(e){
 	    var pos = $(canvas).offset();
+	    var lastDragged = null;
 	    _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
 	    selected = nearest = dragged = particleSystem.nearest(_mouseP);
 	    if (dragged.node !== null) dragged.node.fixed = true
@@ -149,31 +150,33 @@
 	  selected:function(e){
 	    if (dragged===null || dragged.node===undefined) return
 	    if (dragged.node !== null){
-		dragged.node.fixed = true
-		console.log("selected " + dragged.node.name)
-		$(canvas).bind('mousedown', handler.followlink)
+	      dragged.node.fixed = true
+	      console.log("selected " + dragged.node.name)
+	      lastDragged = dragged.node
+	      $(canvas).bind('mousedown', handler.followlink)
+	      if dragged.node.data.type === 'track' or dragged.node.data.type === 'playing'{
+		if (nodeWithStream !== null){
+		  nodeWithStream.data.type = 'track';
+		  soundManager.stopAll();
+		  nodeWithStream = null;
+		}
+		var url = "/tracks/" + dragged.node.name
+		console.log("streaming" + url)
+		dragged.node.data.type = 'playing'
+		nodeWithStream = dragged.node;
+		SC.stream(url, function(sound){
+		  sound.play();
+		});
+	      }
+	      $(canvas).unbind('mousedown', handler.selected)
 	    }
-	    if (nodeWithStream !== null){
-	      nodeWithStream.data.type = 'track';
-	      soundManager.stopAll();
-	      nodeWithStream = null;
-	    }
-	    dragged.node.fixed = true
-	    var url = "/tracks/" + dragged.node.name
-	    console.log("streaming" + url)
-	    dragged.node.data.type = 'playing'
-	    nodeWithStream = dragged.node;
-	    SC.stream(url, function(sound){
-	      sound.play();
-	    });
-	    $(canvas).unbind('mousedown', handler.selected)
 	    return false
 	  },
 	    
 	  followlink:function(e){
             console.log("in handler")
 	    if (selected===null || selected.node===undefined) return
-	    if (selected.node !== null){
+	    if (selected.node !== null && selected.node === lastDragged){
 		console.log("not null");
 		selected.node.fixed = true                  
 		var url=selected.node.data.link;
