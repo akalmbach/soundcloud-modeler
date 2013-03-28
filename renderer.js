@@ -154,7 +154,7 @@
 	      console.log("selected " + dragged.node.name)
 	      lastDragged = dragged.node
 	      $(canvas).bind('mousedown', handler.followlink)
-	      if dragged.node.data.type === 'track' or dragged.node.data.type === 'playing'{
+	      if dragged.node.data.type === 'track' || dragged.node.data.type === 'playing'{
 		if (nodeWithStream !== null){
 		  nodeWithStream.data.type = 'track';
 		  soundManager.stopAll();
