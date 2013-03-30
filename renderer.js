@@ -22,12 +22,6 @@
         if (!particleSystem) return
 
         gfx.clear() // convenience ƒ: clears the whole canvas rect
-	if (nodeWithStream !== null){
-	    ctx.fillStyle = "black";
-	    ctx.font = "bold 16px Arial";
-            var size = ctx.measureText('Now Playing: ' + nodeWithStream.data.longname)
-            ctx.fillText('Now Playing: ' + nodeWithStream.data.longname, 200, 25);
-	}
 
         // draw the nodes & save their bounds for edge drawing
         var nodeBoxes = {}
@@ -164,7 +158,7 @@
 		console.log("streaming" + url)
 		dragged.node.data.type = 'playing'
 		nodeWithStream = dragged.node;
-		$("#playing").text("Now Playing:" + nodeWithStream.data.longname);
+		$("#playing").text("Now Playing: " + nodeWithStream.data.longname);
 		SC.stream(url, function(sound){
 		  sound.play();
 		});
