@@ -174,6 +174,7 @@
 	      	window.open(dragged.node.data.link,"_blank");
 	      }
 	      $(canvas).unbind('mousedown', handler.selected)
+	      dragged.node = null;
 	    }
 	    return false
 	  },
