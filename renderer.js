@@ -6,7 +6,7 @@
     var gfx = arbor.Graphics(canvas)
     var particleSystem = null
     var scale = 0
-    
+       
     var nodeWithStream = null;
 
     var that = {
@@ -20,6 +20,8 @@
 
       redraw:function(){
         if (!particleSystem) return
+        particleSystem.screenSize(canvas.width, canvas.height) 
+        particleSystem.screenPadding(40)
 
         gfx.clear() // convenience ƒ: clears the whole canvas rect
 
