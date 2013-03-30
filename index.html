@@ -6,7 +6,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
   <body>
-  <canvas id="viewport" width="1280" height="500"></canvas>
+  <canvas id="viewport" width="1100" height="1100"></canvas>
 
   <script src="./resources/jquery.min.js"></script>
   <script src="./resources/arbor.js"></script>
@@ -18,7 +18,7 @@
     SC.initialize({
       client_id: 'ef553ea9bbb7541955873e5569f0bc90'
     });
-    var sys = arbor.ParticleSystem(500, 250, 0.98);
+    var sys = arbor.ParticleSystem(700, 250, 0.7);
     sys.parameters({gravity:true});
     sys.renderer = Renderer("#viewport", SC);
     
