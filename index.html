@@ -23,14 +23,14 @@
 
     function resizeCanvas() {
             canvas.width = window.innerWidth - 40;
-            canvas.height = window.innerHeight - 140;
+            canvas.height = window.innerHeight - 70;
     }
     resizeCanvas();
   
     SC.initialize({
       client_id: 'ef553ea9bbb7541955873e5569f0bc90'
     });
-    var sys = arbor.ParticleSystem(1200, 500, 0.25);
+    var sys = arbor.ParticleSystem(1200, 300, 0.35);
     sys.parameters({gravity:true});
     sys.renderer = Renderer("#viewport", SC);
       
