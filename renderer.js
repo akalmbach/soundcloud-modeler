@@ -170,6 +170,9 @@
 		  });
 	      	}
 	      }
+	      else if (dragged.node.data.type === 'artist'){
+	      	window.open(dragged.node.data.link,"_blank");
+	      }
 	      $(canvas).unbind('mousedown', handler.selected)
 	    }
 	    return false
