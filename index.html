@@ -23,6 +23,20 @@
     sys.parameters({gravity:true});
     sys.renderer = Renderer("#viewport", SC);
     
+    (function() {
+	    var canvas = document.getElementById('canvas'),
+	            context = canvas.getContext('2d');
+	
+	    // resize the canvas to fill browser window dynamically
+	    window.addEventListener('resize', resizeCanvas, false);
+	
+	    function resizeCanvas() {
+	            canvas.width = window.innerWidth;
+	            canvas.height = window.innerHeight;
+	    }
+	    resizeCanvas();
+    });
+   
     var data = {
       nodes:{
 	0:{'type':'topic',
