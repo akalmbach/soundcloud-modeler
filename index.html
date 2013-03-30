@@ -6,7 +6,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
   <body>
-  <canvas id="viewport" width="1820" height="980"></canvas>
+  <canvas id="viewport" width="1820" height="880"></canvas>
   <h2 id="playing">Nothing Playing</h2>
 
   <script src="./resources/jquery.min.js"></script>
@@ -19,7 +19,7 @@
     SC.initialize({
       client_id: 'ef553ea9bbb7541955873e5569f0bc90'
     });
-    var sys = arbor.ParticleSystem(700, 250, 0.7);
+    var sys = arbor.ParticleSystem(700, 1250, 0.5);
     sys.parameters({gravity:true});
     sys.renderer = Renderer("#viewport", SC);
     
