@@ -16,8 +16,8 @@
   <script src="http://connect.soundcloud.com/sdk.js"></script>
 
   <script language="javascript" type="text/javascript">
-  	var canvas = document.getElementById('canvas'),
-        context = canvas.getContext('2d');
+  	var canvas = $("#viewport").get(0)
+    	var context = canvas.getContext("2d");
   
   	window.addEventListener('resize', resizeCanvas, false);
 
