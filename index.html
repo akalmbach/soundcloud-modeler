@@ -16,6 +16,17 @@
   <script src="http://connect.soundcloud.com/sdk.js"></script>
 
   <script language="javascript" type="text/javascript">
+    var canvas = $("#viewport").get(0)
+
+    // resize the canvas to fill browser window dynamically
+    window.addEventListener('resize', resizeCanvas, false);
+
+    function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+  
     SC.initialize({
       client_id: 'ef553ea9bbb7541955873e5569f0bc90'
     });
