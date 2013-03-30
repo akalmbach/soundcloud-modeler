@@ -160,7 +160,7 @@
 		console.log("streaming" + url)
 		dragged.node.data.type = 'playing'
 		nodeWithStream = dragged.node;
-		$("#playing").text("Now Playing: " + nodeWithStream.data.longname);
+		$("#playing").html("Now Playing: <a href=" nodeWithStream.data.link + ">" + nodeWithStream.data.longname + "</a>");
 		SC.stream(url, function(sound){
 		  sound.play();
 		});
