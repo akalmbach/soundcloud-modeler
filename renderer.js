@@ -149,7 +149,7 @@
 	      dragged.node.fixed = true
 	      console.log("selected " + dragged.node.name)
 	      lastDragged = dragged.node
-	      $(canvas).bind('mousedown', handler.followlink)
+	      $(canvas).bind('mousedown', handler.stopStreaming)
 	      if (dragged.node.data.type === 'track' || dragged.node.data.type === 'playing'){
 		if (nodeWithStream !== null){
 		  nodeWithStream.data.type = 'track';
@@ -170,17 +170,15 @@
 	    return false
 	  },
 	    
-	  followlink:function(e){
+	  stopStreaming:function(e){
             console.log("in handler")
 	    if (selected===null || selected.node===undefined) return
-	    if (selected.node !== null && selected.node === lastDragged){
-		console.log("not null");
-		selected.node.fixed = true                  
-		var url=selected.node.data.link;
-		console.log(url)
-		if (url) window.open(url, '_blank')
+	    if (selected.node !== null && selected.node === nodeWithStream){
+	      nodeWithStream.data.type = 'track';
+	      soundManager.stopAll();
+	      nodeWithStream = null;
 	    }
-	    $(canvas).unbind('mousedown', handler.followlink)
+	    $(canvas).unbind('mousedown', handler.stopStreaming)
 	    return false
 	  },
           dragged:function(e){
