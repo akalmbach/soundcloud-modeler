@@ -154,16 +154,21 @@
 		if (nodeWithStream !== null){
 		  nodeWithStream.data.type = 'track';
 		  soundManager.stopAll();
-		  nodeWithStream = null;
 		}
-		var url = "/tracks/" + dragged.node.name
-		console.log("streaming" + url)
-		dragged.node.data.type = 'playing'
-		nodeWithStream = dragged.node;
-		$("#playing").html("Now Playing: <a href=" + nodeWithStream.data.link + " target=\"_blank\">" + nodeWithStream.data.longname + "</a>");
-		SC.stream(url, function(sound){
-		  sound.play();
-		});
+	        if (nodeWithStream === dragged.node){
+	          $(#playing).html("Nothing Playing")
+  		  nodeWithStream = null;
+	      	}
+	      	else{
+		  var url = "/tracks/" + dragged.node.name
+		  console.log("streaming" + url)
+		  dragged.node.data.type = 'playing'
+		  nodeWithStream = dragged.node;
+		  $("#playing").html("Now Playing: <a href=" + nodeWithStream.data.link + " target=\"_blank\">" + nodeWithStream.data.longname + "</a>");
+		  SC.stream(url, function(sound){
+		    sound.play();
+		  });
+	      	}
 	      }
 	      $(canvas).unbind('mousedown', handler.selected)
 	    }
