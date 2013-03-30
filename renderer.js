@@ -156,7 +156,7 @@
 		  soundManager.stopAll();
 		}
 	        if (nodeWithStream === dragged.node){
-	          $(#playing).html("Nothing Playing")
+	          $("#playing").html("Nothing Playing")
   		  nodeWithStream = null;
 	      	}
 	      	else{
