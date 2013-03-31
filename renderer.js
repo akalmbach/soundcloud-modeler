@@ -47,7 +47,7 @@
 	  if (node.data.type ==='topic') ctx.fillStyle = "rgba(20,20,20,0.8)";
 	  if (node.data.type ==='track') ctx.fillStyle = "rgba(180,20,20,0.8)";
 	  if (node.data.type ==='artist') ctx.fillStyle = "rgba(20,20,180,0.8)";
-	  if (node.data.type ==='playing') ctx.fillStyle ="rgba(20,180,20,0.8)";			
+	  if (node.data.type ==='playing') ctx.fillStyle ="rgba(30,180,30,0.9)";			
 
           if (node.data.type==='track' || node.data.type==='playing'){
             gfx.oval(pt.x-w/2, pt.y-w/2, w,w, {fill:ctx.fillStyle})
