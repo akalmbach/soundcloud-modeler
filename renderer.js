@@ -191,7 +191,7 @@
 	    return false
 	  },
           dragged:function(e){
-            if (nearest === null) return
+            if (nearest === null || nearest.node === null) return
             var old_nearest = nearest && nearest.node._id
             var pos = $(canvas).offset();
             var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
