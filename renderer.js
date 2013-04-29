@@ -6,7 +6,7 @@
     var gfx = arbor.Graphics(canvas)
     var particleSystem = null
     var scale = 0
-    
+       
     var nodeWithStream = null;
 
     var that = {
@@ -20,14 +20,10 @@
 
       redraw:function(){
         if (!particleSystem) return
+        particleSystem.screenSize(canvas.width, canvas.height) 
+        particleSystem.screenPadding(40)
 
         gfx.clear() // convenience ƒ: clears the whole canvas rect
-	if (nodeWithStream !== null){
-	    ctx.fillStyle = "black";
-	    ctx.font = "bold 16px Arial";
-            var size = ctx.measureText('Now Playing: ' + nodeWithStream.data.longname)
-            ctx.fillText('Now Playing: ' + nodeWithStream.data.longname, 200, 25);
-	}
 
         // draw the nodes & save their bounds for edge drawing
         var nodeBoxes = {}
@@ -51,7 +47,7 @@
 	  if (node.data.type ==='topic') ctx.fillStyle = "rgba(20,20,20,0.8)";
 	  if (node.data.type ==='track') ctx.fillStyle = "rgba(180,20,20,0.8)";
 	  if (node.data.type ==='artist') ctx.fillStyle = "rgba(20,20,180,0.8)";
-	  if (node.data.type ==='playing') ctx.fillStyle ="rgba(20,180,20,0.8)";			
+	  if (node.data.type ==='playing') ctx.fillStyle ="rgba(30,180,30,0.9)";			
 
           if (node.data.type==='track' || node.data.type==='playing'){
             gfx.oval(pt.x-w/2, pt.y-w/2, w,w, {fill:ctx.fillStyle})
@@ -153,40 +149,49 @@
 	      dragged.node.fixed = true
 	      console.log("selected " + dragged.node.name)
 	      lastDragged = dragged.node
-	      $(canvas).bind('mousedown', handler.followlink)
+	      $(canvas).bind('mousedown', handler.stopStreaming)
 	      if (dragged.node.data.type === 'track' || dragged.node.data.type === 'playing'){
 		if (nodeWithStream !== null){
 		  nodeWithStream.data.type = 'track';
 		  soundManager.stopAll();
-		  nodeWithStream = null;
 		}
-		var url = "/tracks/" + dragged.node.name
-		console.log("streaming" + url)
-		dragged.node.data.type = 'playing'
-		nodeWithStream = dragged.node;
-		SC.stream(url, function(sound){
-		  sound.play();
-		});
+	        if (nodeWithStream === dragged.node){
+	          $("#playing").html("Nothing Playing")
+  		  nodeWithStream = null;
+	      	}
+	      	else{
+		  var url = "/tracks/" + dragged.node.name
+		  console.log("streaming" + url)
+		  dragged.node.data.type = 'playing'
+		  nodeWithStream = dragged.node;
+		  $("#playing").html("Now Playing: <a href=" + nodeWithStream.data.link + " target=\"_blank\">" + nodeWithStream.data.longname + "</a>");
+		  SC.stream(url, function(sound){
+		    sound.play();
+		  });
+	      	}
+	      }
+	      else if (dragged.node.data.type === 'artist'){
+	      	window.open(dragged.node.data.link,"_blank");
 	      }
 	      $(canvas).unbind('mousedown', handler.selected)
+	      dragged.node = null;
 	    }
 	    return false
 	  },
 	    
-	  followlink:function(e){
+	  stopStreaming:function(e){
             console.log("in handler")
 	    if (selected===null || selected.node===undefined) return
-	    if (selected.node !== null && selected.node === lastDragged){
-		console.log("not null");
-		selected.node.fixed = true                  
-		var url=selected.node.data.link;
-		console.log(url)
-		if (url) window.open(url, '_blank')
+	    if (selected.node !== null && selected.node === nodeWithStream){
+	      nodeWithStream.data.type = 'track';
+	      soundManager.stopAll();
+	      nodeWithStream = null;
 	    }
-	    $(canvas).unbind('mousedown', handler.followlink)
+	    $(canvas).unbind('mousedown', handler.stopStreaming)
 	    return false
 	  },
           dragged:function(e){
+            if (nearest === null || nearest.node === null) return
             var old_nearest = nearest && nearest.node._id
             var pos = $(canvas).offset();
             var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
@@ -202,8 +207,10 @@
 
           dropped:function(e){
             if (dragged===null || dragged.node===undefined) return
-            if (dragged.node !== null) dragged.node.fixed = false
-            dragged.node.tempMass = 50
+            if (dragged.node !== null){
+              dragged.node.fixed = false
+              dragged.node.tempMass = 50
+            }
             dragged = null
             selected = null
             $(canvas).unbind('mousemove', handler.dragged)
